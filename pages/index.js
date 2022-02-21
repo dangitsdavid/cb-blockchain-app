@@ -15,12 +15,13 @@ export default function Home() {
             Connect Wallet
           </Button>
           <Details>
-            You need to be on Rinkeby network
-            <br /> to able to run this app.
+            You need <a href={'https://metamask.io/'} style={{ color: '#3773f5' }}>Metamask</a> and to be on Rinkeby
+            <br /> network to able to run this app.
           </Details>
         </WalletConnect>
-      )}
-    </Wrapper>
+      )
+      }
+    </Wrapper >
   )
 
 }
