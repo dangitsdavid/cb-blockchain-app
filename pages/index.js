@@ -15,7 +15,7 @@ export default function Home() {
             Connect Wallet
           </Button>
           <Details>
-            You need <a href={'https://metamask.io/'} style={{ color: '#3773f5' }}>Metamask</a> and to be on Rinkeby
+            You need <a href={'https://metamask.io/'} target={"_blank"} style={{ color: '#3773f5' }}>Metamask</a> and to be on Rinkeby
             <br /> network to able to run this app.
           </Details>
         </WalletConnect>
