@@ -21,6 +21,13 @@ export default function Home() {
         </WalletConnect>
       )
       }
+      <Details>
+        <span style={{ color: '#3773f5' }}>DavidsBlock: CB Demo App</span> <br />
+        <div>
+          <a href={'https://davidsblock.com'} target={'_blank'} span style={{ color: '#D3D3D3' }}>Home</a> ||
+          <a href={'https://github.com/dangitsdavid/cb-blockchain-app'} target={'_blank'} span style={{ color: '#D3D3D3' }}> Github</a>
+        </div>
+      </Details>
     </Wrapper >
   )
 
@@ -64,4 +71,9 @@ const Details = styled.div`
   margin-top: 1rem;
   font-weight: 500;
   color: #282b2f;
+`
+
+const Title = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
 `
