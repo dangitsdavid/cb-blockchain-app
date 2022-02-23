@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Transfer from './Transfer'
+import CoinSelector from './CoinSelector'
 
-const TransferModal = () => {
+const TransferModal = ({ sanityTokens, thirdWebTokens, walletAddress,
+}) => {
   const [action, setAction] = useState('send')
+  const [selectedToken, setSelectedToken] = useState(sanityTokens[0])
+
+  console.log(sanityTokens)
 
   const selectedStyle = {
     color: '#3773f5'
@@ -11,20 +17,48 @@ const TransferModal = () => {
     border: '1px solid #282b2f'
   }
 
+  const selectedModal = option => {
+    switch (option) {
+      case 'send':
+        return <Transfer
+          selectedToken={selectedToken}
+          setAction={setAction}
+          thirdWebTokens={thirdWebTokens}
+          walletAddress={walletAddress}
+        />
+      case 'receive':
+        return <h2>Receive Placeholder</h2>
+      case 'select':
+        return <CoinSelector
+          setAction={setAction}
+          selectedToken={selectedToken}
+          setSelectedToken={setSelectedToken}
+          sanityTokens={sanityTokens}
+          thirdWebTokens={thirdWebTokens}
+          walletAddress={walletAddress}
+        />
+      default:
+        return <h2>Send</h2>
+    }
+  }
+
   return (
     <Wrapper>
       <Selector>
         <Option
           style={action == 'send' ? selectedStyle : unselectedStyle}
           onClick={() => setAction('send')}>
-          <p>send</p>
+          <p>Send</p>
         </Option>
         <Option
           style={action == 'receive' ? selectedStyle : unselectedStyle}
           onClick={() => setAction('receive')}>
-          <p>receive</p>
+          <p>Receive</p>
         </Option>
       </Selector>
+      <ModalMain>
+        {selectedModal(action)}
+      </ModalMain>
     </Wrapper>
   )
 }
@@ -32,19 +66,26 @@ const TransferModal = () => {
 export default TransferModal
 
 const Wrapper = styled.div`
-  height: 35rem;
+  height: 34rem; /* 35rem */
   width: 27rem;
   color: white;
   border: 1px solid #282b2f;
   display: flex;
   flex-direction: column;
+
+  /* hidden scrollbar - nonscrolling for y-axis */
+  overflow: hidden;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const Selector = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 5rem;
+  height: 4rem; /* was 5rem */
 `
 
 const Option = styled.div`
@@ -59,4 +100,9 @@ const Option = styled.div`
     cursor: pointer;
     background-color: #111214;
   }
+`
+
+const ModalMain = styled.div`
+  padding: 1rem;
+  flex: 1;
 `

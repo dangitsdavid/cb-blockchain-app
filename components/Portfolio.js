@@ -7,7 +7,7 @@ import BalanceChart from './BalanceChart'
 
 const Portfolio = ({ thirdWebTokens, sanityTokens, walletAddress }) => {
   // console.log(thirdWebTokens)
-  console.log(sanityTokens)
+  // console.log(sanityTokens)
   // console.log(walletAddress)
 
   const [walletBalance, setWalletBalance] = useState(0)
@@ -26,7 +26,7 @@ const Portfolio = ({ thirdWebTokens, sanityTokens, walletAddress }) => {
           return Number(balance.displayValue) * tokenToUSD[token.address]
         })
       )
-      console.log(totalBalance, 'Total Balance')
+      // console.log(totalBalance, 'Total Balance')
       setWalletBalance(totalBalance.reduce((acc, curr) => acc + curr, 0))
     }
 

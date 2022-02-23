@@ -7,13 +7,13 @@ import Link from 'next/link'
 
 Modal.setAppElement('#__next')
 
-const Header = ({ walletAddress, connectWallet }) => {
+const Header = ({ walletAddress, sanityTokens, thirdWebTokens, connectWallet }) => {
   const router = useRouter()
 
   const customStyles = {
     content: {
-      top: '50%',
-      left: '50%',
+      top: '20%', // was 50% but incorrect when viewing | 20%
+      left: '30%', // was 50% but incorrect when viewing | 30%
       right: 'auto',
       bottom: 'auto',
       transfer: 'translate(-50%, -50%)',
@@ -31,18 +31,18 @@ const Header = ({ walletAddress, connectWallet }) => {
     <Wrapper>
       <Title>Assets</Title>
       <ButtonsContainer>
-        {walletAddress ? (
-          <WalletLink>
-            <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
-            <WalletAddress>
-              {walletAddress.slice(0, 7)}...{walletAddress.slice(35)}
-            </WalletAddress>
-          </WalletLink>
-        ) : (
-          <Button style={{ backgroundColor: '#3773f5', color: '#000' }}>
-            Buy / Sell
-          </Button>
-        )}
+        {/* {walletAddress ? ( */}
+        <WalletLink>
+          <WalletLinkTitle>Wallet Connected</WalletLinkTitle>
+          <WalletAddress>
+            {walletAddress.slice(0, 7)}...{walletAddress.slice(35)}
+          </WalletAddress>
+        </WalletLink>
+        {/* ) : ( */}
+        <Button style={{ backgroundColor: '#3773f5', color: '#000' }}>
+          Buy / Sell
+        </Button>
+        {/* )} */}
         <Link href={'/?transfer=1'}>
           <Button>Send / Receive</Button>
         </Link>
@@ -52,7 +52,11 @@ const Header = ({ walletAddress, connectWallet }) => {
         onRequestClose={() => router.push('/')}
         style={customStyles}
       >
-        <TransferModal />
+        <TransferModal
+          sanityTokens={sanityTokens}
+          thirdWebTokens={thirdWebTokens}
+          walletAddress={walletAddress}
+        />
       </Modal>
     </Wrapper>
   )

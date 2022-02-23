@@ -15,19 +15,17 @@ export default function Home() {
             Connect Wallet
           </Button>
           <Details>
-            You need <a href={'https://metamask.io/'} target={"_blank"} style={{ color: '#3773f5' }}>Metamask</a> and to be on Rinkeby
-            <br /> network to able to run this app.
+            You need <a href={'https://metamask.io/'} target={"_blank"} style={{ color: '#3773f5' }}>Metamask</a> and to be on <span style={{ color: '#D3D3D3' }}>Rinkeby</span>
+            <br /> network to able to run this app. <br /><br />
           </Details>
+          <span style={{ color: '#3773f5' }}>DavidsBlock: CB Demo App</span>
+          <div>
+            <a href={'https://davidsblock.com'} span style={{ color: '#D3D3D3' }}>Home</a> |
+            <a href={'https://github.com/dangitsdavid/cb-blockchain-app'} target={'_blank'} span style={{ color: '#D3D3D3' }}> Github</a>
+          </div>
         </WalletConnect>
-      )
-      }
-      <Details>
-        <span style={{ color: '#3773f5' }}>DavidsBlock: CB Demo App</span> <br />
-        <div>
-          <a href={'https://davidsblock.com'} target={'_blank'} span style={{ color: '#D3D3D3' }}>Home</a> ||
-          <a href={'https://github.com/dangitsdavid/cb-blockchain-app'} target={'_blank'} span style={{ color: '#D3D3D3' }}> Github</a>
-        </div>
-      </Details>
+      )}
+
     </Wrapper >
   )
 
