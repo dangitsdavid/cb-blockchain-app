@@ -15,7 +15,7 @@ export default function Home() {
             Connect Wallet
           </Button>
           <Details>
-            You need <a href={'https://metamask.io/'} target={"_blank"} style={{ color: '#3773f5' }}>Metamask</a> and to be on <span style={{ color: '#D3D3D3' }}>Rinkeby</span>
+            You need <a href={'https://metamask.io/'} target={"_blank"} style={{ color: '#3773f5' }}>Metamask</a> and to be on <span style={{ color: '#D3D3D3' }}>Goerli</span>
             <br /> network to able to run this app. <br /><br />
           </Details>
           <span style={{ color: '#3773f5' }}>DavidsBlock: CB Demo App</span>
